@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto Form Fill</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body class="p-0 m-0 min-h-0">
+    <div
+      class="w-[360px] bg-background-dark border border-border-dark rounded-xl shadow-2xl flex flex-col overflow-hidden"
+      >
+        <header
+          class="bg-surface-dark border-b border-border-dark px-4 py-3 flex items-center justify-between z-10 relative"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="size-6 bg-white/5 rounded flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined text-[18px]">bolt</span>
+            </div>
+            <h1 class="text-white text-base font-bold tracking-tight">
+              AutoForm
+            </h1>
+          </div>
+          <!-- <button
+            class="text-text-secondary hover:text-white transition-colors p-1 rounded hover:bg-white/5"
+          >
+            <span class="material-symbols-outlined text-[20px]">settings</span>
+          </button> -->
+        </header>
+        <div
+          class="bg-status-bg px-4 py-3 flex items-center gap-3 border-b border-border-dark"
+        >
+          <div
+            class="shrink-0 flex items-center gap-1.5 bg-success/10 px-2.5 py-1 rounded-full border border-success/20"
+          >
+            <div class="size-1.5 rounded-full bg-success"></div>
+            <span
+              class="text-success text-[10px] font-bold uppercase tracking-wider"
+              >Localhost</span
+            >
+          </div>
+          <div class="flex items-center gap-2 overflow-hidden min-w-0 flex-1">
+            <span
+              class="material-symbols-outlined text-text-secondary/70 text-[16px] shrink-0"
+              >public</span
+            >
+            <p
+              id="url-paragraph"
+              class="text-text-secondary text-xs font-mono truncate hover:text-white transition-colors cursor-help"
+              title="http://localhost:3000"
+            >
+              localhost:3000
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col p-4 gap-5 overflow-y-auto max-h-[600px] scrollbar-thin scrollbar-thumb-border-dark scrollbar-track-transparent"
+        >
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-[11px] font-bold text-text-secondary uppercase tracking-wider opacity-80"
+              >Data Mode</label
+            >
+            <div
+              class="flex p-1 bg-surface-dark rounded-lg border border-border-dark"
+            >
+              <label class="flex-1 cursor-pointer">
+                <input
+                  checked=""
+                  class="peer sr-only"
+                  name="data-mode"
+                  type="radio"
+                  value="valid"
+                />
+                <div
+                  class="flex items-center justify-center py-1.5 rounded px-2 text-xs font-medium text-text-secondary transition-all peer-checked:bg-primary peer-checked:text-white"
+                >
+                  Valid
+                </div>
+              </label>
+              <label class="flex-1 cursor-not-allowed">
+                <input
+                  class="peer sr-only"
+                  name="data-mode"
+                  type="radio"
+                  value="boundary"
+                  disabled
+                />
+                <div
+                  class="flex items-center justify-center py-1.5 rounded px-2 text-xs font-medium text-text-secondary transition-all peer-checked:bg-primary peer-checked:text-white"
+                >
+                  Boundary
+                </div>
+              </label>
+              <label class="flex-1 cursor-not-allowed">
+                <input
+                  class="peer sr-only"
+                  name="data-mode"
+                  type="radio"
+                  value="invalid"
+                  style="cursor: not-allowed"
+                  disabled
+                />
+                <div
+                  class="flex items-center justify-center py-1.5 rounded px-2 text-xs font-medium text-text-secondary transition-all peer-checked:bg-primary peer-checked:text-white"
+                >
+                  Invalid
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div
+              class="flex flex-col gap-1 rounded-lg p-3 border border-border-dark bg-surface-dark relative overflow-hidden group hover:border-text-secondary/30 transition-colors"
+            >
+              <div
+                class="absolute top-0 right-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity"
+              >
+                <span class="material-symbols-outlined text-[48px]"
+                  >text_fields</span
+                >
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary">
+                <span class="material-symbols-outlined text-[16px]"
+                  >text_fields</span
+                >
+                <span class="text-xs font-medium">Inputs</span>
+              </div>
+              <p
+                class="text-white text-xl font-bold font-mono"
+                id="no-of-input-paragraph"
+              >
+                0
+              </p>
+            </div>
+            <div
+              class="flex flex-col gap-1 rounded-lg p-3 border border-border-dark bg-surface-dark relative overflow-hidden group hover:border-text-secondary/30 transition-colors"
+            >
+              <div
+                class="absolute top-0 right-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity"
+              >
+                <span class="material-symbols-outlined text-[48px]"
+                  >check_box</span
+                >
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary">
+                <span class="material-symbols-outlined text-[16px]"
+                  >check_box</span
+                >
+                <span class="text-xs font-medium">Checks</span>
+              </div>
+              <p
+                class="text-white text-xl font-bold font-mono"
+                id="no-of-checkbox-paragraph"
+              >
+                0
+              </p>
+            </div>
+          </div>
+          <details
+            class="group rounded-lg border border-border-dark bg-surface-dark open"
+          >
+            <summary
+              class="flex cursor-pointer items-center justify-between p-3 select-none hover:bg-white/5 transition-colors"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-text-secondary text-[18px]"
+                  >list</span
+                >
+                <span class="text-white text-sm font-medium" id="detected-field"
+                  >Detected Fields (0)</span
+                >
+              </div>
+              <span
+                class="material-symbols-outlined text-text-secondary transition-transform group-open:rotate-180 text-[20px]"
+                >expand_more</span
+              >
+            </summary>
+            <div class="border-t border-border-dark px-3 py-2 bg-black/20">
+              <ul class="flex flex-col gap-1" id="input-field-map"></ul>
+              <!-- <div class="mt-2 text-center">
+                <button
+                  class="text-[10px] text-primary hover:text-primary-hover hover:underline transition-colors font-medium"
+                >
+                  View all fields
+                </button>
+              </div> -->
+            </div>
+          </details>
+          <!-- <div class="flex items-center justify-between py-1">
+            <div class="flex flex-col">
+              <span class="text-sm font-medium text-white"
+                >Save Data Profile</span
+              >
+              <span class="text-xs text-text-secondary"
+                >Store these values for later</span
+              >
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input class="sr-only peer" type="checkbox" value="" />
+              <div
+                class="w-9 h-5 bg-border-dark peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary hover:after:bg-gray-100"
+              ></div>
+            </label>
+          </div> -->
+        </div>
+        <div
+          class="bg-surface-dark border-t border-border-dark p-4 flex flex-col gap-3"
+        >
+          <div class="flex gap-3">
+            <!-- <button
+              class="flex-1 flex items-center justify-center gap-2 h-10 rounded-lg border border-border-dark bg-transparent text-text-secondary hover:text-white hover:bg-white/5 hover:border-text-secondary/50 text-sm font-medium transition-all duration-200"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >visibility</span
+              >
+              Preview
+            </button> -->
+            <button
+              class="flex-[2] flex items-center justify-center gap-2 h-10 rounded-lg bg-primary hover:bg-primary-hover text-white text-sm font-bold active:scale-[0.98] transition-all duration-200"
+              id="auto-fill-btn"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >edit_square</span
+              >
+              Fill Form
+            </button>
+          </div>
+          <div class="flex items-center justify-between mt-1 px-1">
+            <span class="text-[10px] text-text-secondary font-mono opacity-60"
+              >v1.2.4</span
+            >
+            <a
+              class="text-[10px] text-text-secondary hover:text-primary flex items-center gap-1 transition-colors"
+              href="#"
+            >
+              Docs
+              <span class="material-symbols-outlined text-[12px]"
+                >open_in_new</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./popup.js"></script>
+  </body>
+</html>

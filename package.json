@@ -1,0 +1,34 @@
+{
+  "name": "autoform-glimpse",
+  "version": "0.1.0",
+  "description": "Simple Developer tool for automatically fill Forms in development mode environments",
+  "keywords": [
+    "autoform",
+    "glimpse",
+    "autofill",
+    "browser-extension",
+    "opensource"
+  ],
+  "license": "ISC",
+  "author": "dev-en-m",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/style.css -o ./dist/output.css",
+    "build:js": "esbuild src/content.js --bundle --outfile=dist/main.js --format=iife --minify",
+    "build": "npm run build:css && npm run build:js",
+    "dev:css": "npx @tailwindcss/cli -i ./src/style.css -o ./dist/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@fontsource/inter": "^5.2.8",
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/forms": "^0.5.11",
+    "material-symbols": "^0.40.2",
+    "tailwindcss": "^4.1.18",
+    "web-ext": "^9.3.0",
+    "esbuild": "^0.27.3"
+  },
+  "dependencies": {}
+}
