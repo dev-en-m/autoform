@@ -3,7 +3,15 @@
   "name": "AutoForm Glimpse",
   "description": "Simple Developer tool for automatically fill Forms in development mode environments",
   "version": "0.1.0",
-  "homepage_url": "https://github.com/dev-en-m",
+  "homepage_url": "https://github.com/dev-en-m/autoform-glimpse",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "devendra@devendramcode",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "icons": {
     "48": "src/icons/icon48.png"
   },
