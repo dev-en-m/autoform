@@ -26,7 +26,7 @@ A developer tool for automatically filling forms in development environments.
   - Passwords
   - Checkboxes
   - Radio buttons
-- **Local Development Ready** - Pre-configured for common localhost ports (3000, 5173, 8080, 4200)
+- **Local Development Ready** - Pre-configured for localhost
 
 ---
 
@@ -68,21 +68,29 @@ npm run dev
 ```
 
 This will:
-- Build the CSS and JavaScript
+- Build the CSS (Tailwind) and JavaScript (esbuild) to the `dist/` folder
 - Open Firefox with the extension loaded
 - Watch for file changes and reload automatically
+
+> **Tip:** For continuous CSS rebuilding during development, run `npm run dev:css` in a separate terminal alongside `npm run dev`.
 
 ### Building for Production
 
 To create a production build:
 
 ```bash
-npm run build
+npm run build:prod
 ```
 
-This generates:
-- `dist/output.css` - Compiled Tailwind CSS
-- `dist/main.js` - Bundled content script
+This will:
+1. Build the CSS (Tailwind) and JavaScript (esbuild) to the `dist/` folder
+2. Package the extension into a distributable `.zip` file in the `web-ext-artifacts/` folder
+
+Or run the steps individually:
+```bash
+npm run build
+npx web-ext build
+```
 
 ---
 
